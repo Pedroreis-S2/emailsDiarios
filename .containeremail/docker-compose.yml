@@ -1,0 +1,16 @@
+services:
+  envio-email:
+    container_name: container
+    image: container:latest
+    build:
+      context: ../
+      dockerfile: ./.containeremail/Dockerfile
+    env_file:
+      - ../.configs/.env
+    volumes:
+      - ../:/container:z
+    command: sleep infinity
+
+    # docker compose -f .containeremail/docker-compose.yml down --rmi all --volumes
+    # docker compose -f .containeremail/docker-compose.yml up --build -d
+    
