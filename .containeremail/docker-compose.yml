@@ -1,12 +1,14 @@
 services:
   envio-email:
     container_name: container
-    image: container:latest
+    image: emails_diarios:latest
     build:
       context: ../
       dockerfile: ./.containeremail/Dockerfile
     env_file:
       - ../.configs/.env
+    ports:
+      - "8000:8000"
     volumes:
       - ../:/container:z
     command: sleep infinity
